@@ -24,7 +24,7 @@ Think of it like a **detective investigating a crime scene** — you gather clue
 ```mermaid
 graph TD
     A[" Reconnaissance"] --> B[" Passive Recon\n(No direct contact)"]
-    A --> C["🔌 Active Recon\n(Direct interaction)"]
+    A --> C[" Active Recon\n(Direct interaction)"]
 
     B --> B1["WHOIS Lookups"]
     B --> B2["DNS Record Queries"]
@@ -377,11 +377,11 @@ Your goal: **confirm what's actually live and what's exposed.**
 
 ```mermaid
 graph TD
-    M1[" Starting scans without defining scope"]:::mistake --> F1["✅ Always confirm scope FIRST\nGet written permission"]:::fix
-    M2[" Skipping passive recon"]:::mistake --> F2["✅ Passive before active — always\nYou might find everything you need"]:::fix
-    M3[" Scanning everything blindly"]:::mistake --> F3["✅ Focus on relevant targets\nQuality over quantity"]:::fix
-    M4[" Not documenting results"]:::mistake --> F4["✅ Take notes in real time\nUse a notes tool like Obsidian"]:::fix
-    M5[" Trusting tool output blindly"]:::mistake --> F5["✅ Always verify manually\nTools produce false positives"]:::fix
+    M1[" Starting scans without defining scope"]:::mistake --> F1[" Always confirm scope FIRST\nGet written permission"]:::fix
+    M2[" Skipping passive recon"]:::mistake --> F2[" Passive before active — always\nYou might find everything you need"]:::fix
+    M3[" Scanning everything blindly"]:::mistake --> F3[" Focus on relevant targets\nQuality over quantity"]:::fix
+    M4[" Not documenting results"]:::mistake --> F4[" Take notes in real time\nUse a notes tool like Obsidian"]:::fix
+    M5[" Trusting tool output blindly"]:::mistake --> F5[" Always verify manually\nTools produce false positives"]:::fix
 
     classDef mistake fill:#ffebee,stroke:#c62828,color:#b71c1c
     classDef fix fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
