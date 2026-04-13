@@ -10,6 +10,12 @@ This work also reflects my broader goal of building a foundation in cybersecurit
 
 ---
 
+##  Note on Formatting
+
+Some notes in this repository are written using extended Markdown features from Obsidian (such as callouts).
+
+While GitHub may not fully render these elements, the content and structure remain intact and readable.
+
 ##  Objectives
 
 * Develop a practical understanding of penetration testing concepts
