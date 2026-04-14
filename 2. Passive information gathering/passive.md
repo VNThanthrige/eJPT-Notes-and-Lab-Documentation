@@ -85,7 +85,6 @@ www.tesla.com has IPv6 address 2001:db8::1
 
 ![host command output](image.png)
 
-> [!success] What we learn The IP address can reveal the **hosting provider**, **geolocation**, and whether the site is behind a **CDN like Cloudflare**.
 
 ---
 
