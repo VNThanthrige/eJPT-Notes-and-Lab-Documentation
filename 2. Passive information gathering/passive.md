@@ -250,7 +250,7 @@ https://www.target.com [200 OK]
           └────────────┬────────────┘
                        │
           ┌────────────▼────────────┐
-          │   📋 INTELLIGENCE       │
+          │      INTELLIGENCE       │
           │   REPORT COMPILED       │
           └─────────────────────────┘
 ```
