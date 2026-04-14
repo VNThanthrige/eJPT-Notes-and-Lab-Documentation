@@ -72,17 +72,6 @@ A free, web-based domain research tool that discovers hosts related to a domain.
 
 ---
 
-## Comparison
-
-|Feature|DNSRecon|DNS Dumpster|
-|---|---|---|
-|Type|CLI Tool|Web App|
-|Output|Raw terminal|Organized + visual|
-|Graph view|❌|✅|
-|Offline use|✅|❌|
-|Custom flags|✅|❌|
-
----
 
 ## Workflow
 
