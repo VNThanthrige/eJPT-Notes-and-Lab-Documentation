@@ -1,0 +1,104 @@
+#  DNS Reconnaissance
+
+---
+
+## Overview
+
+DNS Reconnaissance is the process of identifying records associated with a target domain. The goal is to map out the infrastructure of a target by uncovering:
+
+-  Mail server addresses (MX records)
+-  IP addresses (A / AAAA records)
+-  Name server addresses (NS records)
+-  TXT records and other metadata
+
+> [!info] Context This falls under **Passive Reconnaissance** — we are gathering publicly available information without directly interacting with the target's systems.
+
+---
+
+## Tools
+
+### 1. DNSRecon
+
+> A command-line tool used for DNS reconnaissance, enumeration, and information gathering. Designed for security professionals and ethical hackers to assess network security and identify potential vulnerabilities.
+
+
+
+![host command output](image2.png)
+
+#### Basic Usage
+
+```bash
+dnsrecon -d example.com
+```
+
+#### What It Returns
+
+|Record Type|Description|
+|---|---|
+|`NS`|Name server addresses|
+|`A`|IPv4 address of the domain|
+|`AAAA`|IPv6 address of the domain|
+|`MX`|Mail server address|
+|`TXT`|SPF, DKIM, and other text records|
+
+> [!warning] Note on IP Addresses Highly technical servers (e.g., **Cloudflare**) may mask the actual origin IP. The address returned may belong to a proxy/CDN rather than the real server.
+
+#### Common Flags
+
+```bash
+dnsrecon -d example.com          # Standard enumeration
+dnsrecon -d example.com -t std   # Standard record lookup
+dnsrecon -d example.com -t brt   # Brute-force subdomains
+```
+
+---
+
+### 2. DNS Dumpster
+
+> **Site:** [dnsdumpster.com](https://dnsdumpster.com/)
+
+A free, web-based domain research tool that discovers hosts related to a domain. It provides the same data as DNSRecon but in an **organized, visual format**.
+
+#### Key Features
+
+-  Sorted and structured DNS record output
+-  **Graphical network chart** visualizing host relationships
+-  Attacker's-perspective view of visible hosts
+- No installation required — browser-based
+
+#### Why It Matters
+
+> Finding visible hosts from the attacker's perspective is a critical part of the security assessment process.
+
+---
+
+## Comparison
+
+|Feature|DNSRecon|DNS Dumpster|
+|---|---|---|
+|Type|CLI Tool|Web App|
+|Output|Raw terminal|Organized + visual|
+|Graph view|❌|✅|
+|Offline use|✅|❌|
+|Custom flags|✅|❌|
+
+---
+
+## Workflow
+
+```
+Target Domain
+     │
+     ▼
+┌─────────────┐     ┌──────────────────┐
+│  DNSRecon   │────▶│  Raw DNS Records │
+│  (CLI)      │     │  NS, A, MX, TXT  │
+└─────────────┘     └──────────────────┘
+     │
+     ▼
+┌──────────────────┐     ┌────────────────────────┐
+│  DNS Dumpster    │────▶│  Visual Map of          │
+│  (Web)           │     │  Domain Infrastructure  │
+└──────────────────┘     └────────────────────────┘
+```
+
