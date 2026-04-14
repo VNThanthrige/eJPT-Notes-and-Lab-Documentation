@@ -83,7 +83,7 @@ www.tesla.com has address 184.31.3.173
 www.tesla.com has IPv6 address 2001:db8::1
 ```
 
-image.png
+![[image.png]]
 
 > [!success] What we learn The IP address can reveal the **hosting provider**, **geolocation**, and whether the site is behind a **CDN like Cloudflare**.
 
