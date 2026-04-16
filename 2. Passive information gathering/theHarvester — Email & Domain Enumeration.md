@@ -138,22 +138,3 @@ theHarvester -d example.com -b crtsh
 > [!tip] It is better to Use **both tools together** — Sublist3r for deep subdomain enumeration and theHarvester for email + broader intelligence gathering.
 
 ---
-
-##  Typical Recon Workflow
-
-```
-Start Recon
-    │
-    ▼
-theHarvester (emails, subdomains, IPs, ASNs)
-    │
-    ├──▶ Emails ──▶ Phishing simulation / credential checks
-    │
-    ├──▶ Subdomains ──▶ Sublist3r / Amass for deeper enumeration
-    │
-    ├──▶ IPs ──▶ Nmap / Shodan for port/service scanning
-    │
-    └──▶ ASNs ──▶ Network mapping / BGP analysis
-```
-
----
