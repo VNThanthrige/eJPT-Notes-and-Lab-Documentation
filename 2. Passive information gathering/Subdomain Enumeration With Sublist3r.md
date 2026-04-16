@@ -37,7 +37,7 @@ Sublist3r queries multiple **search engines and passive DNS sources** to collect
 sublist3r -d example.org
 ```
 
-### Verbose Output (Real-Time Results)
+### Verbose Output (Real Time Results)
 
 ```bash
 sublist3r -d example.org -v
