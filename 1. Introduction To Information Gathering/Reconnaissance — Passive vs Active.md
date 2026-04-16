@@ -336,7 +336,8 @@ Your goal: **confirm what's actually live and what's exposed.**
 
 ### Step 4 — Document & Organize Findings
 
-> [!important] Why Documentation Matters Without proper documentation, you will:
+> [!important] Why Documentation Matters
+>  Without proper documentation, you will:
 > 
 > - Repeat work you've already done
 > - Miss findings when writing your report
