@@ -4,13 +4,13 @@
 
 **theHarvester** is a powerful, open-source **OSINT (Open Source Intelligence)** tool built for the **reconnaissance phase** of penetration testing and red team engagements.
 
-It gathers publicly available information about a target domain by querying multiple search engines and online services — without ever directly touching the target.
+It gathers publicly available information about a target domain by querying multiple search engines and online services without ever directly touching the target.
 
-> [!info] Think of it like this theHarvester acts as an **automated Google dorker** — it queries public search engines on your behalf to find anything the target has unintentionally exposed online.
+> [!info] Think of it like this theHarvester acts as an **automated Google dorker** , it queries public search engines on your behalf to find anything the target has unintentionally exposed online.
 
 ---
 
-##  What Can It Find?
+##  What Can you Find Using theHarvester?
 
 |Data Type|Description|
 |---|---|
@@ -25,9 +25,9 @@ It gathers publicly available information about a target domain by querying mult
 
 ##  Installation & Command
 
-theHarvester comes **pre-installed on Kali Linux**.
+theHarvester comes **pre installed on Kali Linux**.
 
-> [!warning] Correct Command Name The command is **theHarvester** — NOT `theharvester` (case-sensitive on some systems).
+> [!warning] Correct Command Name The command is **theHarvester** — NOT `theharvester` (case sensitive on some systems).This is case is valid in modst terminals and os.
 
 ---
 
