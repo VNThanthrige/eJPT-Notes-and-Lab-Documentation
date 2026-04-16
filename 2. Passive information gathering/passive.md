@@ -76,13 +76,6 @@ host <domain>
 host www.tesla.com
 ```
 
-**Sample Output:**
-
-```
-www.tesla.com has address 184.31.3.173
-www.tesla.com has IPv6 address 2001:db8::1
-```
-
 ![host command output](image.png)
 
 
@@ -190,22 +183,6 @@ whatweb -v https://www.target.com
 
 # Aggressive mode
 whatweb -a 3 https://www.target.com
-```
-
-**Sample Output:**
-
-```
-https://www.target.com [200 OK]
-  Apache[2.4.54]
-  Country[UNITED STATES][US]
-  Email[admin@target.com]
-  HTML5
-  HTTPServer[Ubuntu Linux][Apache/2.4.54 (Ubuntu)]
-  IP[93.184.216.34]
-  OpenSSL[1.1.1]
-  PHP[8.1.12]
-  WordPress[6.4.2]
-  X-Powered-By[PHP/8.1.12]
 ```
 
 > [!success] What we learn from WhatWeb
