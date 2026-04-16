@@ -1,6 +1,4 @@
 
----
-
 #  Google Dorks
 
 > [!info] What are Google Dorks? **Google Dorking** (aka Google Hacking) is the technique of using advanced Google search operators to find specific, often hard-to-find information indexed on the web. It's widely used in OSINT, penetration testing, and research.
@@ -38,7 +36,7 @@
 *                    → wildcard
 OR / |               → either term
 ()                   → group terms
-..                   → number range (e.g. 2020..2024)
+..                   → number range (eg 2020..2024)
 ```
 
 ---
