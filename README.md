@@ -5,6 +5,7 @@
 This repository documents my structured preparation for the eJPT (eLearnSecurity Junior Penetration Tester) certification.
 
 It contains organized notes and practical documentation across key penetration testing domains, with a strong focus on clarity, consistency, and real-world applicability.
+This repository documents my learning, supported by practical labs and refined for clarity and structure.
 
 This work also reflects my broader goal of building a foundation in cybersecurity aligned with Governance, Risk, and Compliance (GRC) and long-term IT leadership.
 
