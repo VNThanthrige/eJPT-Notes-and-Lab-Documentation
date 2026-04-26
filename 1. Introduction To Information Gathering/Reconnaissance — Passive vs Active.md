@@ -110,36 +110,6 @@ Active recon involves **directly sending traffic to the target**. This means you
 
 ---
 
-###  Real-World Example — Active Recon on `93.184.216.34`
-
-```bash
-# Step 1 — Host Discovery (Is it alive?)
-$ nmap -sn 93.184.216.34
-  → Host is up (0.011s latency)
-
-# Step 2 — Port Scan (What's open?)
-$ nmap -p- 93.184.216.34
-  → PORT   STATE  SERVICE
-     22/tcp open   ssh
-     80/tcp open   http
-    443/tcp open   https
-   3306/tcp open   mysql  ← database exposed to internet!
-
-# Step 3 — Service Version Detection
-$ nmap -sV -p 22,80,443,3306 93.184.216.34
-  → 22/tcp  OpenSSH 7.2p2 Ubuntu (old version, known CVEs)
-  → 80/tcp  Apache httpd 2.4.29
-  → 443/tcp Apache httpd 2.4.29
-  → 3306/tcp MySQL 5.7.32
-
-# Step 4 — DNS Zone Transfer Attempt
-$ dig AXFR example.com @ns1.example.com
-  → FAILED (server not misconfigured)
-  → But on dev.example.com...
-$ dig AXFR dev.example.com @ns1.example.com
-  → SUCCESS! Full zone dumped — reveals internal hostnames
-```
-
 > [!danger] What You Found by Actively Probing
 > 
 > - MySQL database is **publicly exposed on port 3306** — critical vulnerability
@@ -230,19 +200,6 @@ Before doing anything, answer these questions:
 > - Is cloud infrastructure (AWS, Azure) included?
 > - Are there any off-limit systems?
 
-**Example scope definition:**
-
-```
-In Scope:
-  - example.com and all subdomains
-  - 93.184.216.0/24 (IP range)
-  - *.example.com
-
-Out of Scope:
-  - partner.example.com (third-party hosted)
-  - Production database servers
-```
-
 ---
 
 ### Step 2 — Passive Reconnaissance
@@ -283,29 +240,9 @@ mindmap
 ### Step 3 — Active Reconnaissance
 
 Your goal: **confirm what's actually live and what's exposed.**
+- in here you  can find live hosts, do a full port scan ,Service and version detection, os Detection , DNS zone transfer attempt and many more
 
-> [!example] Typical Active Recon Commands
-> 
-> ```bash
-> # Discover live hosts
-> nmap -sn 10.0.0.0/24
-> 
-> # Full port scan
-> nmap -p- -T4 10.0.0.5
-> 
-> # Service and version detection
-> nmap -sV -sC 10.0.0.5
-> 
-> # OS Detection
-> nmap -O 10.0.0.5
-> 
-> # Web directory fuzzing
-> gobuster dir -u http://example.com -w /usr/share/wordlists/dirb/common.txt
-> 
-> # DNS zone transfer attempt
-> dig AXFR example.com @ns1.example.com
-> ```
-
+- 
 ---
 
 ### Step 4 — Document & Organize Findings
@@ -318,33 +255,6 @@ Your goal: **confirm what's actually live and what's exposed.**
 > - Lose track of which hosts you've tested
 > - Waste time during the exploitation phase
 
-**Recommended documentation format:**
-
-```markdown
-## Target: example.com
-
-### Domains & Subdomains
-- example.com → 93.184.216.34
-- dev.example.com → 93.184.216.50 ← interesting
-- mail.example.com → 93.184.216.10
-
-### Open Ports (93.184.216.34)
-| Port | Service | Version | Notes |
-|------|---------|---------|-------|
-| 22   | SSH | OpenSSH 7.2p2 | Known CVEs exist |
-| 80   | HTTP | Apache 2.4.29 | Outdated |
-| 443  | HTTPS | Apache 2.4.29 | Outdated |
-| 3306 | MySQL | 5.7.32 | EXPOSED! Critical |
-
-### Credentials / Emails Found
-- admin@example.com (from WHOIS)
-- john.doe@example.com (from LinkedIn)
-
-### Potential Attack Vectors
-1. MySQL exposed on port 3306
-2. Outdated Apache (check CVEs)
-3. dev.example.com subdomain (zone transfer succeeded)
-```
 
 ---
 
@@ -375,21 +285,3 @@ graph TD
 > 5. **Don't trust tools blindly** — verify interesting findings manually
 
 ---
-
-##  Useful Tools Reference
-
-|Tool|Type|Use Case|
-|---|---|---|
-|`whois`|Passive|Domain registration info|
-|`dig` / `nslookup`|Passive/Active|DNS records & zone transfers|
-|DNSdumpster|Passive|Subdomain enumeration|
-|Shodan / Censys|Passive|Internet-wide device search|
-|theHarvester|Passive|Email & subdomain harvesting|
-|hunter.io|Passive|Email finding|
-|HaveIBeenPwned|Passive|Breach/leak checking|
-|BuiltWith / Wappalyzer|Passive|Technology fingerprinting|
-|`nmap`|Active|Port scanning & service detection|
-|`gobuster` / `dirb`|Active|Web directory fuzzing|
-|`masscan`|Active|Fast large-scale port scanning|
-|Amass|Active/Passive|Subdomain enumeration|
-
