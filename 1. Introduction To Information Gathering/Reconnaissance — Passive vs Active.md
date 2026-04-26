@@ -71,32 +71,6 @@ Passive recon is gathering information **without ever directly touching the targ
 
 ---
 
-###  Real-World Example — Passive Recon on `example.com`
-
-```
-Target: example.com
-
-Step 1 — WHOIS Lookup
-  → Registrar: GoDaddy
-  → Registered: 2005-08-14
-  → Admin Email: admin@example.com ← potential phishing target
-
-Step 2 — DNS Records (dig / DNSdumpster)
-  → A record:      93.184.216.34  (main server IP)
-  → MX record:     mail.example.com  (mail server)
-  → NS records:    ns1.example.com, ns2.example.com
-  → Subdomain:     dev.example.com ← interesting! dev server exposed?
-
-Step 3 — Google Dorking
-  → site:example.com filetype:pdf  ← finds exposed documents
-  → site:example.com inurl:login   ← finds login pages
-  → "example.com" "password"       ← finds potential leaks
-
-Step 4 — Shodan
-  → Open port 22 (SSH) on 93.184.216.34
-  → Running Apache 2.4.29 (outdated version!)
-```
-
 > [!success] What You Learned Without Touching the Target
 > 
 > - Main IP address
